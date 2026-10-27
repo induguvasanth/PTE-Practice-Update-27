@@ -130,6 +130,8 @@ body{
   .exam-head h1{font-size:20px!important}
   .score-number{font-size:30px!important}
 }
+</style><style>
+.module{position:relative}.module .pte-inline-progress{margin:10px 0 12px;padding:9px 11px;background:#f8f7ff;border:1px solid #ece9ff;border-radius:11px}.pte-inline-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px}.pte-inline-count{font-weight:850;color:#5735d7}.pte-inline-pct{font-weight:750;color:#667085}.pte-inline-track{height:5px;border-radius:8px;background:#e7e3f8;overflow:hidden;margin-top:7px}.pte-inline-track i{display:block;height:100%;width:0;background:#7040ef;border-radius:8px}.module .pte-inline-progress[hidden]{display:none}
 </style></head><body>
 <header class="appbar"><div class="brand"><div class="brandmark">P</div>PTE Academic Practice</div><div class="top-actions"><a class="btn secondary" href="https://script.google.com/macros/s/AKfycbytEPdMZdkgsnQVfKcb5HUoDWKnTGPNQb5LA-osdkAGF2ygPGZiYPxpzrdzEmPvb-9Bkw/exec?teacher=1" style="text-decoration:none;margin-right:8px">🔐 Teacher Login</a><a class="btn secondary" href="full-mock.html" style="text-decoration:none">Full Mock</a></div></header>
 <main class="shell">
@@ -148,21 +150,42 @@ body{
  draw();window.addEventListener('pte:progress-changed',draw);window.addEventListener('storage',draw);window.addEventListener('pte:counts-updated',draw);setTimeout(draw,900);
 })();
 </script>
-<section id="pteSectionStats" aria-label="Student section completion" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:10px;margin:12px 0"></section>
-<script>(function(){const box=document.getElementById('pteSectionStats');const names=['Speaking & Writing','Reading','Listening','Grammar','Vocabulary'];function render(){const sid=window.PTEAuth?.session()?.studentId;if(!sid){box.innerHTML='';return;}box.innerHTML=names.map(name=>{const x=window.PTECounts?.summary(name)||{};const done=x.done||0,total=x.total;const pct=total>0?Math.min(100,Math.round(done/total*100)):0;return '<div style="background:#fff;border:1px solid #e4e2f5;border-radius:14px;padding:12px 14px;box-shadow:0 5px 16px #1d1d3b08"><div style="font:700 12px system-ui;color:#344054">'+name+'</div><div style="display:flex;align-items:baseline;justify-content:space-between;margin:7px 0"><b style="font:800 19px system-ui;color:#5633df">'+done+' / '+(total??'…')+'</b><b style="font:700 12px system-ui;color:#64748b">'+pct+'%</b></div><div style="height:5px;background:#eeeafa;border-radius:9px;overflow:hidden"><div style="height:100%;width:'+pct+'%;background:#6d3cf1"></div></div></div>'}).join('')}render();['pte:cloud-updated','pte:counts-updated','pte:student-changed','pte:progress-changed'].forEach(x=>window.addEventListener(x,render));setTimeout(render,1500)})();</script>
 <div class="section-title"><div><h2>Exam structure</h2><p>Current PTE Academic format</p></div></div>
 <div class="cards">
-<div class="card module"><div class="icon">🗣️</div><h3>Speaking & Writing</h3><p>9 question types • approximately 76–84 minutes</p><div class="meta"><span class="pill">Speaking</span><span class="pill">Writing</span><span class="pill">9 types</span></div><a class="navlink" href="speaking.html">Open module →</a></div>
-<div class="card module"><div class="icon">📚</div><h3>Reading</h3><p>5 question types • approximately 23–30 minutes</p><div class="meta"><span class="pill">Reading</span><span class="pill">5 types</span></div><a class="navlink" href="reading.html">Open module →</a></div>
-<div class="card module"><div class="icon">🎧</div><h3>Listening</h3><p>8 question types • approximately 31–39 minutes</p><div class="meta"><span class="pill">Listening</span><span class="pill">8 types</span></div><a class="navlink" href="listening.html">Open module →</a></div>
+<div class="card module"><div class="icon">🗣️</div><h3>Speaking & Writing</h3><div class="pte-inline-progress" data-section="Speaking & Writing" hidden aria-label="Speaking & Writing progress"><div class="pte-inline-row"><span class="pte-inline-count">— / —</span><span class="pte-inline-pct">—</span></div><div class="pte-inline-track"><i></i></div></div><p>9 question types • approximately 76–84 minutes</p><div class="meta"><span class="pill">Speaking</span><span class="pill">Writing</span><span class="pill">9 types</span></div><a class="navlink" href="speaking.html">Open module →</a></div>
+<div class="card module"><div class="icon">📚</div><h3>Reading</h3><div class="pte-inline-progress" data-section="Reading" hidden aria-label="Reading progress"><div class="pte-inline-row"><span class="pte-inline-count">— / —</span><span class="pte-inline-pct">—</span></div><div class="pte-inline-track"><i></i></div></div><p>5 question types • approximately 23–30 minutes</p><div class="meta"><span class="pill">Reading</span><span class="pill">5 types</span></div><a class="navlink" href="reading.html">Open module →</a></div>
+<div class="card module"><div class="icon">🎧</div><h3>Listening</h3><div class="pte-inline-progress" data-section="Listening" hidden aria-label="Listening progress"><div class="pte-inline-row"><span class="pte-inline-count">— / —</span><span class="pte-inline-pct">—</span></div><div class="pte-inline-track"><i></i></div></div><p>8 question types • approximately 31–39 minutes</p><div class="meta"><span class="pill">Listening</span><span class="pill">8 types</span></div><a class="navlink" href="listening.html">Open module →</a></div>
 </div>
 <div class="section-title"><div><h2>Skill builders</h2><p>Extra practice — not official PTE question types</p></div></div>
 <div class="cards">
-<div class="card module"><div class="icon">📘</div><h3>Grammar</h3><p>Focused grammar drills for accuracy and confidence.</p><a class="navlink" href="grammar.html">Practice grammar →</a></div>
-<div class="card module"><div class="icon">🧠</div><h3>Vocabulary</h3><p>Context-based vocabulary practice for stronger responses.</p><a class="navlink" href="vocabulary.html">Practice vocabulary →</a></div>
+<div class="card module"><div class="icon">📘</div><h3>Grammar</h3><div class="pte-inline-progress" data-section="Grammar" hidden aria-label="Grammar progress"><div class="pte-inline-row"><span class="pte-inline-count">— / —</span><span class="pte-inline-pct">—</span></div><div class="pte-inline-track"><i></i></div></div><p>Focused grammar drills for accuracy and confidence.</p><a class="navlink" href="grammar.html">Practice grammar →</a></div>
+<div class="card module"><div class="icon">🧠</div><h3>Vocabulary</h3><div class="pte-inline-progress" data-section="Vocabulary" hidden aria-label="Vocabulary progress"><div class="pte-inline-row"><span class="pte-inline-count">— / —</span><span class="pte-inline-pct">—</span></div><div class="pte-inline-track"><i></i></div></div><p>Context-based vocabulary practice for stronger responses.</p><a class="navlink" href="vocabulary.html">Practice vocabulary →</a></div>
 <div class="card module"><div class="icon">📊</div><h3>My Progress</h3><p>Sign in to view your finished questions, section totals and completion dates.</p><a class="navlink" href="student.html">View my progress →</a></div>
 </div>
 </main>
 <script>const API_URL='https://script.google.com/macros/s/AKfycbytEPdMZdkgsnQVfKcb5HUoDWKnTGPNQb5LA-osdkAGF2ygPGZiYPxpzrdzEmPvb-9Bkw/exec';</script><script src="student-progress.js"></script><script src="progress-counts.js"></script><script src="sync-config.js"></script><script src="student-auth.js"></script><script src="cloud-sync.js"></script>
 <script src="selection-helper.js"></script>
-</body></html>
+<script>
+(function(){
+ const cards=[...document.querySelectorAll('.pte-inline-progress')];
+ function update(){
+  const session=window.PTEAuth?.session?.();
+  const sid=session?.studentId;
+  cards.forEach(card=>{
+   if(!sid){card.hidden=true;return;}
+   card.hidden=false;
+   const x=window.PTECounts?.summary?.(card.dataset.section)||{};
+   const done=Number(x.done)||0;
+   const total=Number(x.total);
+   const known=Number.isFinite(total)&&total>=0;
+   const pct=known&&total>0?Math.min(100,Math.round(done/total*100)):0;
+   card.querySelector('.pte-inline-count').textContent=done+' / '+(known?total:'—')+' finished';
+   card.querySelector('.pte-inline-pct').textContent=known?pct+'%':'—';
+   card.querySelector('.pte-inline-track i').style.width=pct+'%';
+  });
+ }
+ update();
+ ['pte:cloud-updated','pte:counts-updated','pte:student-changed','pte:progress-changed','storage'].forEach(evt=>window.addEventListener(evt,update));
+ setTimeout(update,900);setTimeout(update,2500);
+})();
+</script></body></html>
